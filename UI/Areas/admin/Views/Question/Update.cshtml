@@ -1,0 +1,110 @@
+﻿@model QuestionDto
+
+
+@section Styles {
+	<!-- Plugin css for this page -->
+	<link rel="stylesheet" href="~/Admin/assets/vendors/select2/select2.min.css">
+	<link rel="stylesheet" href="~/Admin/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+	<!-- End plugin css for this page -->
+}
+
+
+<div class="card-body">
+	<div class="d-flex align-items-start">
+		<div class="wrapper">
+			<div class="badge badge-gradient-info text-center">
+				<h3 class="project-title mb-0">@exam.Question</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="d-flex justify-content-center align-items-center min-vh-75 bg-light mb-5">
+	<div class="card shadow-lg w-50">
+		<div class="card-body">
+			<h4 class="card-title text-center">@Actionexam.Action_EditQuestion</h4>
+
+
+			<form class="forms-sample"
+				  method="post" enctype="multipart/form-data"
+				  asp-controller="Question"
+				  asp-action="Save" role="form">
+				<input asp-for="Id" value="@Model.Id" type="hidden" />
+				<input asp-for="ExamId" value="@Model.ExamId" type="hidden" />
+				<input asp-for="QuestionOrder" value="@Model.QuestionOrder" type="hidden" />
+
+				<div class="form-group row">
+
+					<div class="d-flex align-items-start mb-1">
+						<div class="wrapper">
+							<div class="badge badge-gradient-info text-center">
+								<h5 class="project-title mb-0">@exam.Question</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-9">
+						<input asp-for="Title" type="text" maxlength="100"
+							   class="form-control border border-2 border-info shadow-sm"
+							   placeholder="">
+						<span asp-validation-for="Title" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="col-sm-9 mb-1">
+					<input asp-for="Choice1" type="text" maxlength="100"
+						   class="form-control border border-2 border-dark shadow-sm"
+						   placeholder="">
+					<span asp-validation-for="Choice1" class="text-danger"></span>
+				</div>
+				<div class="col-sm-9 mb-1">
+					<input asp-for="Choice2" type="text" maxlength="100"
+						   class="form-control border border-2 border-dark shadow-sm"
+						   placeholder="">
+					<span asp-validation-for="Choice2" class="text-danger"></span>
+				</div>
+				<div class="col-sm-9 mb-1">
+					<input asp-for="Choice3" type="text" maxlength="100"
+						   class="form-control border border-2 border-dark shadow-sm"
+						   placeholder="">
+					<span asp-validation-for="Choice3" class="text-danger"></span>
+				</div>
+				<div class="col-sm-9 mb-1">
+					<input asp-for="Choiec4" type="text" maxlength="100"
+						   class="form-control border border-2 border-dark shadow-sm"
+						   placeholder="">
+					<span asp-validation-for="Choiec4" class="text-danger"></span>
+				</div>
+				<div class="d-flex align-items-start mb-1">
+					<div class="wrapper">
+						<div class="badge badge-gradient-info text-center">
+							<h5 class="project-title mb-0">@exam.RightAnswer</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-9 mb-1">
+					<input asp-for="RightAnswer" type="text" maxlength="100"
+						   class="form-control border border-2 border-info shadow-sm"
+						   placeholder="">
+					<span asp-validation-for="RightAnswer" class="text-danger"></span>
+				</div>
+				<div class="d-flex justify-content-end align-items-center gap-2 mb-3">
+					<button type="submit" class="btn btn-block btn-gradient-info btn-sm fw">@actionEx.Save</button>
+					<button type="button" class="btn btn-block btn-gradient-danger btn-sm fw" onclick="history.back()">@actionEx.Cancel</button>
+
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+
+	<!-- Plugin js for this page -->
+	<script src="~/Admin/assets/vendors/select2/select2.min.js"></script>
+	<script src="~/Admin/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<!-- End plugin js for this page -->
+	<!-- Custom js for this page -->
+	<script src="~/Admin/assets/js/file-upload.js"></script>
+	<script src="~/Admin/assets/js/typeahead.js"></script>
+	<script src="~/Admin/assets/js/select2.js"></script>
+	<!-- End custom js for this page -->
+}

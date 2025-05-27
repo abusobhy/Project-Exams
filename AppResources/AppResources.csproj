@@ -1,0 +1,105 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Actions\actionEx.ar.Designer.cs">
+      <DependentUpon>actionEx.ar.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Actions\actionEx.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>actionEx.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Exam\Actionexam.ar.Designer.cs">
+      <DependentUpon>Actionexam.ar.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Exam\Actionexam.Designer.cs">
+      <DependentUpon>Actionexam.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Exam\exam.ar.Designer.cs">
+      <DependentUpon>exam.ar.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Exam\exam.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>exam.resx</DependentUpon>
+    </Compile>
+    <Compile Update="General\general.ar.Designer.cs">
+      <DependentUpon>general.ar.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="General\general.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>general.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\message.ar.Designer.cs">
+      <DependentUpon>message.ar.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Messages\message.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>message.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Actions\actionEx.ar.resx">
+      <LastGenOutput>actionEx.ar.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Actions\actionEx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>actionEx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Exam\Actionexam.ar.resx">
+      <LastGenOutput>Actionexam.ar.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Exam\Actionexam.resx">
+      <LastGenOutput>Actionexam.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Exam\exam.ar.resx">
+      <LastGenOutput>exam.ar.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Exam\exam.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>exam.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="General\general.ar.resx">
+      <LastGenOutput>general.ar.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="General\general.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>general.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\message.ar.resx">
+      <LastGenOutput>message.ar.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\message.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

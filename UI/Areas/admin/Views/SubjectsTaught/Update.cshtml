@@ -1,0 +1,84 @@
+﻿@model SubjectsTaughtDto
+
+
+@section Styles {
+	<!-- Plugin css for this page -->
+	<link rel="stylesheet" href="~/Admin/assets/vendors/select2/select2.min.css">
+	<link rel="stylesheet" href="~/Admin/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+	<!-- End plugin css for this page -->
+}
+
+
+<div class="card-body">
+	<div class="d-flex align-items-start">
+		<div class="wrapper">
+			<div class="badge badge-gradient-danger text-center">
+				<h3 class="project-title mb-0">@exam.Subject</h3>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="d-flex justify-content-center align-items-center min-vh-75 bg-light mb-5">
+		<div class="card shadow-lg w-50">
+			<div class="card-body">
+			<h4 class="card-title text-center">@Actionexam.Action_EditSubject</h4>
+
+
+				<form class="forms-sample"
+					  method="post" enctype="multipart/form-data"
+					  asp-controller="SubjectsTaught"
+					  asp-action="Save" role="form">
+					<input asp-for="Id" type="hidden" />
+					<div class="form-group row">
+						
+						<div class="d-flex align-items-start mb-1">
+							<div class="wrapper">
+								<div class="badge badge-gradient-danger text-center">
+									<h5 class="project-title mb-0">@exam.Subject</h5>
+								</div>
+							</div>
+						</div>
+					<div class="col-sm-9">
+						<input asp-for="NameSubjects" type="text" maxlength="100"
+							   class="form-control border border-2 border-danger shadow-sm"
+							   placeholder="">
+						<span asp-validation-for="NameSubjects" class="text-danger"></span>
+					</div>
+						
+					</div>
+				<div class="d-flex align-items-start mb-1">
+					<div class="wrapper">
+						<div class="badge badge-gradient-danger text-center">
+							<h5 class="project-title mb-0">@exam.Description</h5>
+						</div>
+					</div>
+				</div>
+				<div class=" col-sm-9 mb-1">
+						<textarea asp-for="Description" type="text" maxlength="500"
+							  class="form-control border border-2 border-danger shadow-sm" placeholder=""></textarea>
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+
+
+					<div class="d-flex justify-content-end align-items-center gap-2 mb-3">
+					<button type="submit" class="btn btn-block btn-gradient-success btn-sm fw">@actionEx.Save</button>
+					<button type="button" class="btn btn-block btn-gradient-danger btn-sm fw" onclick="history.back()">@actionEx.Cancel</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+@section Scripts {
+
+	<!-- Plugin js for this page -->
+	<script src="~/Admin/assets/vendors/select2/select2.min.js"></script>
+	<script src="~/Admin/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<!-- End plugin js for this page -->
+	<!-- Custom js for this page -->
+	<script src="~/Admin/assets/js/file-upload.js"></script>
+	<script src="~/Admin/assets/js/typeahead.js"></script>
+	<script src="~/Admin/assets/js/select2.js"></script>
+	<!-- End custom js for this page -->
+}

@@ -1,0 +1,135 @@
+﻿@model List<SubjectsTaughtDto>
+
+@{
+	var exams = ViewBag.exams as List<ExamDto>;
+}
+
+<div class="content-wrapper">
+
+
+	<div class="card-body">
+		<div class="d-flex align-items-start">
+			<div class="wrapper">
+				<div class="badge badge-gradient-info text-center">
+					<h3 class="project-title mb-0">@exam.Home</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card-body">
+
+
+		<div class="d-flex justify-content-end align-items-center gap-2 mb-1 mx-5">
+
+
+			<label id="total-count" class="mb-0 mx-4">Total: @Model.Count()</label>
+			<input type="search" class="form-control w-25" placeholder="Search" id="subjectSearch">
+
+		</div>
+		<div class="row project-list-showcase content-wrapper">
+
+			@foreach (var subj in Model)
+			{
+
+				var count = exams.Count(a => a.SubjectTaughId == subj.Id);
+
+				<div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-4 subject-card">
+
+					<div id="question-@subj.Id" class="card h-100 shadow-sm border border-secondary position-relative">
+						<div class="card-body project-grid-inner">
+
+							<div class="card-body">
+								<div class="d-flex justify-content-center">
+									<div class="wrapper">
+										<div class="badge badge-gradient-info text-center">
+											<h3 class="project-title mb-0">@subj.NameSubjects</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="project-description">
+								@subj.Description
+							</p>
+							<div class="d-flex justify-content-between align-items-center flex-wrap ">
+								<div class="action-tags d-flex flex-row">
+									<div class="wrapper pr-4">
+										<i class="mdi mdi-view-sequential me-2"></i>34
+									</div>
+								</div>
+								<div class="image-grouped">
+									<img class="img-xs rounded-circle" src="~/Admin/assets/images/faces/face9.jpg" alt="profile image">
+									<img class="img-xs rounded-circle" src="~/Admin/assets/images/faces/face5.jpg" alt="profile image">
+									<img class="img-xs rounded-circle" src="~/Admin/assets/images/faces/face6.jpg" alt="profile image">
+								</div>
+							</div>
+
+
+							<div class="d-flex align-items-center mt-5">
+								<div class="mb-4 align-items-center">
+									<a asp-controller="Home" asp-action="ShowExams" asp-area="" asp-route-Id="@subj.Id" class="btn btn-outline-info btn-sm fw mx-1">
+										@exam.Exams
+										<div class="badge badge-gradient-success ms-auto">@count</div>
+									</a>
+								</div>
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+			}
+		</div>
+	</div>
+</div>
+
+
+@section Scripts {
+
+
+
+	<script>
+		$(function () {
+			$(document).on('click', '.cls-del', function (e) {
+				e.preventDefault();
+				var id = $(this).data('id');
+				var deleteUrl = '@Url.Action("Delete", "SubjectsTaught")';
+
+				alert.ConfirmDelete(function (result) {
+					if (result) {
+						$.ajax({
+							url: deleteUrl + '/' + id,
+							type: 'POST',
+							success: function (response) {
+								$('#question-' + id).remove();
+								let totalLabel = $('#total-count');
+								let currentTotal = parseInt(totalLabel.text().replace(/\D/g, ''));
+								totalLabel.text('Total : ' + (currentTotal - 1));
+							},
+							error: function () {
+								alert('Error while deleting');
+							}
+						});
+					}
+				});
+			});
+		});
+	</script>
+
+
+	<script>
+		document.getElementById('subjectSearch').addEventListener('keyup', function () {
+			var query = this.value.toLowerCase();
+
+			document.querySelectorAll('.subject-card').forEach(function (card) {
+				var text = card.innerText.toLowerCase();
+				card.style.display = text.includes(query) ? 'block' : 'none';
+			});
+		});
+	</script>
+
+}
+
+
+

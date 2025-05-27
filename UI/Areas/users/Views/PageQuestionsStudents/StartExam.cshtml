@@ -1,0 +1,61 @@
+﻿@model QuestionDto
+
+
+<div id="questionContainer">
+	<partial name="_QuestionsList" model="Model" />
+</div>
+
+
+
+
+
+
+@section Scripts {
+
+
+	<script>
+
+		$(function () {
+			$(document).on('click', '#nextBtn', function () {
+				var selectedAnswer = $('input[name="RightAnswer"]:checked').val();
+				var questionId = $('#questionId').val();
+				var questionOrder = $('#questionOrder').val();
+				var examId = $('#examId').val();
+
+				if (!selectedAnswer) {
+					alert("Please select an answer.");
+					return;
+				};
+
+
+				var model =
+				{
+					Id: questionId,
+					QuestionOrder: questionOrder,
+					ExamId: examId,
+					RightAnswer: selectedAnswer,
+					CurrentState: 1
+				};
+				$.ajax({
+
+					method: "POST",
+					url: '@Url.Action("SaveAjax", "PageQuestionsStudents")',
+					contentType: 'application/json', // نوع البيانات
+					data: JSON.stringify(model),     // إرسال البيانات كـ JSON
+					success: function (result) {
+						$("#questionContainer").html(result);
+					},
+					error: function () {
+						alert("An error occurred while loading the next question.");
+					}
+				});
+
+			});
+		});
+	</script>
+}
+
+
+
+
+

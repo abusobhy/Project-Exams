@@ -1,0 +1,183 @@
+﻿@{
+	Layout = null;
+}
+@model UserExamDto
+
+@if (Model.PassStatus == true)
+{
+
+	<div class="d-flex align-items-center justify-content-center vh-100">
+		<div class="card border-success shadow-lg w-100" style="max-width: 600px;">
+			<div class="card-header bg-success text-white text-center fs-3 fw-bold">
+				🎉 You won
+			</div>
+			<div class="card-body text-center">
+				<h5 class="card-title fs-4">The test was successfully passed.</h5>
+				<p class="card-text fs-5">You've done a great job on this test. Keep going!</p>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Date</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@Model.EndTime</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Subject</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@ViewBag.NameSubject</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Exam</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@ViewBag.NameExam</h3>
+						</div>
+					</div>
+				</div>
+				
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Score</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@Model.Score</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Pass Status</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@Model.PassStatus</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Resultes %</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@Model.Resultes</h3>
+						</div>
+					</div>
+				</div>
+				
+				<a asp-controller="Home" asp-action="Index" asp-area="" class="btn btn-outline-success btn-lg mt-3">Go Back Home</a>
+			</div>
+		</div>
+	</div>
+}
+else
+{
+	<div class="d-flex align-items-center justify-content-center vh-100">
+		<div class="card border-danger shadow-lg w-100" style="max-width: 600px;">
+			<div class="card-header bg-danger text-white text-center fs-3 fw-bold">
+				try again
+			</div>
+			<div class="card-body text-center">
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Date</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@Model.EndTime</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Subject</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@ViewBag.NameSubject</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Exam</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-success text-center">
+							<h3 class="project-title mb-0">@ViewBag.NameExam</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Score</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">@Model.Score</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Pass Status</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">@Model.PassStatus</h3>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex align-items-start">
+					<div class="wrapper mx-3">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">Resultes %</h3>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="badge badge-gradient-danger text-center">
+							<h3 class="project-title mb-0">@Model.Resultes</h3>
+						</div>
+					</div>
+				</div>
+
+				<a asp-controller="Home" asp-action="Index" asp-area="" class="btn btn-outline-success btn-lg mt-3">Go Back Home</a>
+			</div>
+		</div>
+	</div>
+
+}

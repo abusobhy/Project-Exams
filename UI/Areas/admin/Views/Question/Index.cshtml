@@ -1,0 +1,158 @@
+﻿@model List<QuestionDto>
+
+
+
+
+<div class="content-wrapper">
+
+
+
+	<div class="card-body">
+		<div class="d-flex align-items-start">
+			<div class="wrapper">
+				<div class="badge badge-gradient-info text-center">
+					<h3 class="project-title mb-0">@exam.Questions</h3>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="badge badge-gradient-success text-center">
+					<h3 class="project-title mb-0">Exam : @ViewBag.exam</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-end align-items-center gap-2 mb-1 mx-5">
+
+
+		<label id="total-count" class="mb-0 mx-4">Total :  @Model.Count()</label>
+		<input type="search" class="form-control w-25" placeholder="Search" id="Search">
+		<div class="mx-5">
+
+			<a asp-controller="Question" asp-action="Add" asp-route-Id="@ViewBag.examId" asp-area="admin" class="btn btn-outline-info btn-sm fw">@Actionexam.Action_AddQuestion</a>
+		</div>
+	</div>
+
+	<div class="row project-list-showcase content-wrapper">
+		@foreach (var ques in Model)
+		{
+
+
+			<div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+				<div id="question-@ques.Id" class="card h-100 shadow-sm border border-secondary position-relative">
+					<div class="card">
+						<div class="card-body">
+							<div class="align-items-start mb-3">
+								<div class="badge badge-gradient-info">
+									<h4 class="project-title mb-0">@ques.Title</h4>
+								</div>
+							</div>
+
+
+							<div class="mb-2 text-center">
+								<div class="badge badge-gradient-dark">
+									<h5 class="project-title mb-0">@ques.Choice1</h5>
+								</div>
+							</div>
+							<div class="mb-2 text-center">
+								<div class="badge badge-gradient-dark">
+									<h5 class="project-title mb-0">@ques.Choice2</h5>
+								</div>
+							</div>
+							<div class="mb-2 text-center">
+								<div class="badge badge-gradient-dark">
+									<h5 class="project-title mb-0">@ques.Choice3</h5>
+								</div>
+							</div>
+							<div class="mb-2 text-center">
+								<div class="badge badge-gradient-dark">
+									<h5 class="project-title mb-0">@ques.Choiec4</h5>
+								</div>
+							</div>
+
+							<div class="mb-2 text-center">
+								<div class="badge badge-gradient-success">
+									<h5 class="project-title mb-0">@exam.RightAnswer :  @ques.RightAnswer</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="position-absolute bottom-0 end-0 mb-2 me-2 d-flex gap-2">
+						<a asp-controller="Question" asp-action="Update" asp-area="admin" asp-route-Id="@ques.Id"
+						   class="btn btn-outline-info btn-sm">
+							<i class="bi bi-pencil"></i>
+						</a>
+						<button type="button" class="btn btn-outline-danger btn-sm cls-del" data-id="@ques.Id">
+							<i class="bi bi-trash"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+
+
+@section Scripts {
+
+	<script>
+		$(function () {
+			$(document).on('click', '.cls-del', function (e) {
+				e.preventDefault();
+				var id = $(this).data('id');
+				var deleteUrl = '@Url.Action("Delete", "Question")';
+
+				alert.ConfirmDelete(function (result) {
+					if (result) {
+						$.ajax({
+							url: deleteUrl + '/' + id,
+							type: 'POST',
+							success: function (response) {
+								$('#question-' + id).remove();
+								let totalLabel = $('#total-count');
+								let currentTotal = parseInt(totalLabel.text().replace(/\D/g, '')); 
+								totalLabel.text('Total : ' + (currentTotal - 1));
+							},
+							error: function () {
+								alert('Error while deleting');
+							}
+						});
+					}
+				});
+			});
+		});
+	</script>
+
+	@* <script>
+		$(function () {
+			$(document).on('click', '.cls-del', function (e) {
+				e.preventDefault();
+				var id = $(this).data('id');
+				var deleteUrl = '@Url.Action("Delete", "Question")';
+
+				alert.ConfirmDelete(function (result) {
+					if (result) {
+						window.location.href = deleteUrl + '/' + id;
+					}
+
+				});
+			});
+		});
+	</script> *@
+	<script>
+		document.getElementById('Search').addEventListener('keyup', function () {
+			var query = this.value.toLowerCase();
+
+			document.querySelectorAll('.sSearch-card').forEach(function (card) {
+				var text = card.innerText.toLowerCase();
+				card.style.display = text.includes(query) ? 'block' : 'none';
+			});
+		});
+	</script>
+
+}
+
+
+

@@ -1,0 +1,119 @@
+﻿
+
+@model QuestionDto
+
+<style> 
+    .question-card {
+        background: linear-gradient(145deg, #f8fafc, #e0e7ff);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        animation: fadeIn 0.5s ease-in-out;
+        transition: all 0.3s;
+    }
+
+    .question-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1e293b;
+        margin-bottom: 20px;
+    }
+
+    .answer-option {
+        display:block;
+        background-color: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .answer-option:hover {
+            background-color: #6366f1;
+            color: #ffffff;
+            border-color: #6366f1;
+            transform: scale(1.02);
+        }
+
+       
+
+        .answer-option.selected {
+            background-color: #6366f1;
+            color: #ffffff;
+            border-color: #6366f1;
+        }
+
+    .next-button {
+        margin-top: 20px;
+        background-color: #10b981;
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+
+        .next-button:hover {
+            background-color: #059669;
+        }
+
+</style>
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-lg border-0 mt-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Question</h5>
+                </div>
+                <div class="card-body">
+
+                    <h5 class="question-title">Text</h5>
+
+                    
+                        <div class="container">
+                            <div class="question-card ">
+                            <input type="hidden" id="questionId" value="@Model.Id" />
+                            <input type="hidden" id="questionOrder" value="@Model.QuestionOrder" />
+                            <input type="hidden" id="examId" value="@Model.ExamId" />
+
+                                 <div class="question-title">@Model.Title</div> 
+
+                                <label class="answer-option">
+                                <input type="radio" class="answer-input" name="RightAnswer" value="@Model.Choice1">
+                                @Model.Choice1
+                                </label>
+                                <label class="answer-option">
+                                <input type="radio" class="answer-input" name="RightAnswer" value="@Model.Choice2">
+                                @Model.Choice2
+                                </label>
+                                <label class="answer-option">
+                                <input type="radio" class="answer-input" name="RightAnswer" value="@Model.Choice3">
+                                @Model.Choice3
+                                </label>
+                                <label class="answer-option">
+                                <input type="radio" class="answer-input" name="RightAnswer" value="@Model.Choiec4">
+                                @Model.Choiec4
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="text-end mt-4">
+                            <button type="button" id="nextBtn" class="btn btn-success">Next</button>
+                        </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+ 
