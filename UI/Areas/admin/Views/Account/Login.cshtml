@@ -13,18 +13,20 @@
                        
                         <h1>let's get started</h1>
                         <h6 class="font-weight-light">Sign in to continue.</h6>
-                        <form class="pt-3" method="post" asp-controller="Account" asp-action="Login" asp-area="admin" >
+                        <form class="pt-3" method="post" enctype="multipart/form-data"
+                        asp-controller="Account" asp-action="Login" asp-area="admin" >
+                            @Html.AntiForgeryToken()
                             <input asp-for="ReturnUrl" type="hidden" />
+                            <input asp-for="UserName" value="@Model.Email" type="hidden" />
                             <input asp-for="Id" type="hidden" />
                             <div class="form-group">
-                                <input asp-for="Email" type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
-                                
-                                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                                <input asp-for="Email"  type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
 
                             </div>
                             <div class="form-group">
-                                <input asp-for="Password" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
-                                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                                <input asp-for="Password"  type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
 
                             </div>
                             <div class="my-2 d-flex justify-content-between align-items-center">
@@ -56,3 +58,8 @@
     <!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

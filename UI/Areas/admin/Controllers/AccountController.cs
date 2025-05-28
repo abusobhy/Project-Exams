@@ -22,7 +22,7 @@ namespace UI.Areas.admin.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
+       
         public IActionResult Login(string returnUrl)
         {
 
@@ -50,8 +50,8 @@ namespace UI.Areas.admin.Controllers
             //if (userDto.Id != Guid.Empty)
             //    return RedirectToRoute(new { area = "admin", Controller = "Home" });
 
-            //if (!ModelState.IsValid)
-            //    return View("Login", userDto);
+            if (!ModelState.IsValid)
+                return View("Login", userDto);
 
 
             var result = await _userService.LoginAsync(userDto);
@@ -67,7 +67,7 @@ namespace UI.Areas.admin.Controllers
             else
             {
 
-                return View();
+                return View(userDto);
             }
         }
         public IActionResult AccessDenied()

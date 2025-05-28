@@ -8,7 +8,7 @@ namespace BL.Dtos.UserServiceDtos
 	public class UserDto : BaseDto
 	{
 
-		[Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(message), AllowEmptyStrings = false)]
+		//[Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(message), AllowEmptyStrings = false)]
 		public string? UserName { get; set; }
 
         [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(message), AllowEmptyStrings = false)]
@@ -17,7 +17,7 @@ namespace BL.Dtos.UserServiceDtos
          
         [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(message), AllowEmptyStrings = false)]
         public string? Password { get; set; }
-        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(message), AllowEmptyStrings = false)]
+       // [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(message), AllowEmptyStrings = false)]
 
         public string? ConfirmPassword { get; set; }
 		public string? ReturnUrl { get; set; }
