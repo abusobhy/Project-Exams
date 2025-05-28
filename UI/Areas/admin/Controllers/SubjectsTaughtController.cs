@@ -39,7 +39,8 @@ namespace UI.Areas.admin.Controllers
 			}
 			return View(data);
 		}
-
+		
+		
 		public IActionResult Update(Guid? id)
 		{
 

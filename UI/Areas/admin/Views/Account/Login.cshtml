@@ -17,7 +17,6 @@
                         asp-controller="Account" asp-action="Login" asp-area="admin" >
                             @Html.AntiForgeryToken()
                             <input asp-for="ReturnUrl" type="hidden" />
-                            <input asp-for="UserName" value="@Model.Email" type="hidden" />
                             <input asp-for="Id" type="hidden" />
                             <div class="form-group">
                                 <input asp-for="Email"  type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">

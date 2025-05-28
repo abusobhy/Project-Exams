@@ -28,6 +28,8 @@
 				  method="post" enctype="multipart/form-data"
 				  asp-controller="Question"
 				  asp-action="Save" role="form">
+				@Html.AntiForgeryToken()
+
 				<input asp-for="Id" value="@Model.Id" type="hidden" />
 				<input asp-for="ExamId" value="@Model.ExamId" type="hidden" />
 				<input asp-for="QuestionOrder" value="@Model.QuestionOrder" type="hidden" />
@@ -97,6 +99,10 @@
 </div>
 
 @section Scripts {
+	
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
 	<!-- Plugin js for this page -->
 	<script src="~/Admin/assets/vendors/select2/select2.min.js"></script>

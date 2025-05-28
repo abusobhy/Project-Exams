@@ -28,6 +28,8 @@
 					  method="post" enctype="multipart/form-data"
 					  asp-controller="SubjectsTaught"
 					  asp-action="Save" role="form">
+				@Html.AntiForgeryToken()
+
 					<input asp-for="Id" type="hidden" />
 					<div class="form-group row">
 						
@@ -71,6 +73,10 @@
 	</div>
 
 @section Scripts {
+	
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
 	<!-- Plugin js for this page -->
 	<script src="~/Admin/assets/vendors/select2/select2.min.js"></script>
