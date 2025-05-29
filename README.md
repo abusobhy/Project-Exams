@@ -1,5 +1,6 @@
+# very important 
+After creating the database inside the ScriptSqlDummyDataAndAnotherFiles file, please copy the migration files in the project code and paste them into the database.
 # Exam
-
 📁 Included Files in the Project 👉(ScriptSqlDummyDataAndAnotherFiles)
 The project package contains the following important supporting files:
 
