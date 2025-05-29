@@ -76,10 +76,12 @@ namespace UI
                 .CreateLogger();
             builder.Host.UseSerilog();
 
+			//It is prepared for the first time at the beginning of the application.
+			builder.Services.AddScoped<ContextConfig>();
+            //--
 
-
-            builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
-            //         //--
+			builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+            
 
             builder.Services.AddScoped(typeof(ITbRepository<>), typeof(TbRepository<>));
             builder.Services.AddScoped(typeof(IVwRepository<>), typeof(VwRepository<>));
