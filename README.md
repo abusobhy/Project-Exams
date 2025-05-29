@@ -1,5 +1,4 @@
 # Exam
-
 📁 Included Files in the Project 👉(ScriptSqlDummyDataAndAnotherFiles)
 The project package contains the following important supporting files:
 
