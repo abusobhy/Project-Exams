@@ -1,4 +1,21 @@
 ﻿
+--insert in __EFMigrationsHistory
+
+--20250512062159_add-snapshot	9.0.4
+--20250512074242_addtow	9.0.4
+--20250512075209_addthree	9.0.4
+--20250512083721_final	9.0.4
+--20250514154236_updateEntity	9.0.4
+--20250514155021_updateEwwww	9.0.4
+--20250515071027_addQuestionOrder	9.0.4
+--20250516090749_addUserId	9.0.4
+--20250516141658_updateTbuserExam	9.0.4
+--20250516145734_updateTbuserExam2	9.0.4
+--20250525093507_addfildinuseranswer	9.0.4
+--NULL	NULL
+
+
+
 
 --(Moha@gmail.com,@aA12345) as admin And Student
 --(zzzz@gmail.com,@aA12345) as Student

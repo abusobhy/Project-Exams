@@ -3,17 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{1A598E22-60FF-40B0-80DF-1BC5A2FE0FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{1A598E22-60FF-40B0-80DF-1BC5A2FE0FB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{A2AE0F6D-1DB3-41F6-BECF-77FA47CA26EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{A2AE0F6D-1DB3-41F6-BECF-77FA47CA26EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{DE5964EE-F1F1-42F7-A5E8-6E6E45210082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{DE5964EE-F1F1-42F7-A5E8-6E6E45210082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{AB2A47B4-4E1B-4C23-8D86-578408234620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AB2A47B4-4E1B-4C23-8D86-578408234620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{DF33A701-470D-4B16-AA57-4373D00A1BC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{DF33A701-470D-4B16-AA57-4373D00A1BC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppResources", "AppResources\AppResources.csproj", "{E8D4D0C5-0AEC-4CA8-AEA4-028E348FE2C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppResources", "AppResources\AppResources.csproj", "{E8D4D0C5-0AEC-4CA8-AEA4-028E348FE2C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70CE7993-A42E-4D10-B414-70128830DF3B}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptSqlDummyDataAndAnotherFiles\.$Exam Diagram.drawio.bkp = ScriptSqlDummyDataAndAnotherFiles\.$Exam Diagram.drawio.bkp
+		ScriptSqlDummyDataAndAnotherFiles\Exam Diagram.drawio = ScriptSqlDummyDataAndAnotherFiles\Exam Diagram.drawio
+		ScriptSqlDummyDataAndAnotherFiles\scriptExam.sql = ScriptSqlDummyDataAndAnotherFiles\scriptExam.sql
+		ScriptSqlDummyDataAndAnotherFiles\SQLQuery1.sql = ScriptSqlDummyDataAndAnotherFiles\SQLQuery1.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
